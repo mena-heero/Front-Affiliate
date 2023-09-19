@@ -13,8 +13,13 @@
         </div>
         <div class="item active">
           <div class="info">
+            <<<<<<< HEAD
             <div class="name">{{ getProfile.full_name }}</div>
-            <div class="other-info">ID: {{ getProfile.affiliate_id }}</div>
+            <div class="other-info">ID: {{ getProfile?.affiliate_id }}</div>
+            =======
+            <div class="name">{{ getProfile.full_name }}</div>
+            <div class="other-info">ID: {{ getProfile?.affiliate_id }}</div>
+            >>>>>>> a58c5066065457451e1c9a3143b8c7a60b1c36e2
           </div>
         </div>
       </div>
