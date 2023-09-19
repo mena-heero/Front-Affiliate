@@ -13,8 +13,9 @@
         </div>
         <div class="item active">
           <div class="info">
-            <div class="name">Amir Mubarak</div>
-            <div class="other-info">ID: {{ getProfile.affiliate_id }}</div>
+            
+            <div class="name">{{ getProfile.full_name }}</div>
+            <div class="other-info">ID: {{ getProfile?.affiliate_id }}</div>            
           </div>
         </div>
       </div>

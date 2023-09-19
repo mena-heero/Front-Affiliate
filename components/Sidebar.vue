@@ -85,12 +85,12 @@ export default class Sidebar extends Vue {
   }
 
   handleSignout() {
-    // try {
-    //   this.setTokenError();
-    //   this.$router.push("/signin");
-    // } catch (e) {
-    //   this.$router.push("/signin");
-    // }
+    try {
+      this.setTokenError();
+      this.$router.push("/signin");
+    } catch (e) {
+      this.$router.push("/signin");
+    }
   }
 }
 </script>
