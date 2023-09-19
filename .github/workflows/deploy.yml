@@ -59,9 +59,9 @@ jobs:
           docker login docker.io -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Development Build Script
         run: |
-          docker build -f ./Dockerfile . -t flagedu-affiliate:prod
-          docker tag flagedu-affiliate:prod docker.pkg.github.com/mubarak117136/flagedu-affiliate/flagedu-affiliate:prod
-          docker push docker.pkg.github.com/mubarak117136/flagedu-affiliate/flagedu-affiliate:prod
+          docker build -f ./Dockerfile . -t flagedu-affiliate:dev2
+          docker tag flagedu-affiliate:dev2 menaheero/flagedu-affiliate:dev2
+          docker push menaheero/flagedu-affiliate:dev2
   production-deploy:
     name: Production Deploy
     needs: production-build
