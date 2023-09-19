@@ -80,4 +80,4 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa_alltargeting_frontend
           ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
-          ssh $USERNAME@$HOST "cd /www/affiliate/ && docker-compose pull frontend && docker-compose stop frontend && docker-compose up -d frontend; rm -r frontend/_nuxt/ &> /dev/null; docker cp flagedu_affiliate:/app/.nuxt/dist/client/ frontend/_nuxt; sleep 5s;"
+          ssh $USERNAME@$HOST "cd /www/fl/src/Front-Affiliate && docker-compose pull frontend && docker-compose stop frontend && docker-compose up -d frontend; rm -r frontend/_nuxt/ &> /dev/null; docker cp flagedu_affiliate:/app/.nuxt/dist/client/ frontend/_nuxt; sleep 5s;"
