@@ -3,12 +3,12 @@ on:
   push:
     branches:
       - main
-      - stable
+      - v2
 
 jobs:
   development-build:
     name: Development Build
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/v2'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Git Repo
@@ -18,12 +18,12 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker login docker.pkg.github.com -u $DOCKER_USER -p $DOCKER_PASSWORD
+          docker login docker.io -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Development Build Script
         run: |
-          docker build -f ./Dockerfile . -t flagedu-affiliate:dev
-          docker tag flagedu-affiliate:dev docker.pkg.github.com/mubarak117136/flagedu-affiliate/flagedu-affiliate:dev
-          docker push docker.pkg.github.com/mubarak117136/flagedu-affiliate/flagedu-affiliate:dev
+          docker build -f ./Dockerfile . -t flagedu-affiliate:dev2
+          docker tag flagedu-affiliate:dev2 menaheero/flagedu-affiliate:dev2
+          docker push menaheero/flagedu-affiliate:dev2
   # development-deploy:
   #   name: Development Deploy
   #   needs: development-build
@@ -46,7 +46,7 @@ jobs:
 
   production-build:
     name: Development Build
-    if: github.ref == 'refs/heads/stable'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Git Repo
@@ -56,7 +56,7 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker login docker.pkg.github.com -u $DOCKER_USER -p $DOCKER_PASSWORD
+          docker login docker.io -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Development Build Script
         run: |
           docker build -f ./Dockerfile . -t flagedu-affiliate:prod
@@ -65,7 +65,7 @@ jobs:
   production-deploy:
     name: Production Deploy
     needs: production-build
-    if: github.ref == 'refs/heads/stable'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Production Frontend Build & Deploy
