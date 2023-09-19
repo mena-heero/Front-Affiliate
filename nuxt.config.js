@@ -202,6 +202,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/dayjs",
     "cookie-universal-nuxt",
+    "@nuxtjs/i18n",
     "nuxt-clipboard",
   ],
 

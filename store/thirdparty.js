@@ -9,7 +9,14 @@ export const actions = {
       this.$axios
         .post(`${EVEST_ENDPOINT}/signup/`, payload)
         .then(({ data }) => {
-          resolve(data);
+          // Check if the API response contains a login_url
+          if (data && data.login_url) {
+            // Redirect to the login_url
+            window.location.href = data.login_url;
+          } else {
+            // Handle the case where login_url is not present in the response
+            reject(new Error("Login URL not found in the API response"));
+          }
         })
         .catch((e) => {
           console.log(e);
